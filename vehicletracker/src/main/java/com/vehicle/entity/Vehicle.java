@@ -1,11 +1,18 @@
 package com.vehicle.entity;
 
-import java.util.UUID;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="vehicle")
 public class Vehicle {
 	
 	@Id
@@ -17,6 +24,11 @@ public class Vehicle {
 	int maxFuelVolume;
 	String lastServiceDate;
 
+ 	//@OneToMany(mappedBy="vehicles", cascade=CascadeType.ALL, fetch=FetchType.LAZY)//, cascade={javax.persistence.CascadeType.ALL})
+	//@JoinColumn(name = "vin")//, nullable=false, insertable=false, updatable=false)
+	//@OneToMany
+	//List<VehicleReading> vehicleReadings;
+	
 	public String getVin() {
 		return vin;
 	}
@@ -59,4 +71,10 @@ public class Vehicle {
 	public void setLastServiceDate(String lastServiceDate) {
 		this.lastServiceDate = lastServiceDate;
 	}
+//	public List<VehicleReading> getVehicleReadings() {
+//		return vehicleReadings;
+//	}
+//	public void setVehicleReadings(List<VehicleReading> vehicleReadings) {
+//		this.vehicleReadings = vehicleReadings;
+//	}
 }

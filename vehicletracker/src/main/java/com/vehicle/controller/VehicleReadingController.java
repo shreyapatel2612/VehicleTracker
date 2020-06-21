@@ -16,25 +16,20 @@ import com.vehicle.service.VehicleReadingService;
 import com.vehicle.service.VehicleService;
 
 @RestController
-@RequestMapping(value = "/vehicles")
+@RequestMapping(value = "/readings")
 @CrossOrigin
-public class VehicleController {
-	
-	@Autowired
-	VehicleService vehicleService;
+public class VehicleReadingController {
 	
 	@Autowired
 	VehicleReadingService vehicleReadingService;
 	
 	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Vehicle> findAll() {
-		return vehicleService.findAll();
+	public List<VehicleReading> findAll() {
+		return vehicleReadingService.findAll();
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void create(@RequestBody List<Vehicle> vehicles) {
-		for (Vehicle vehicle: vehicles) {
-			vehicleService.create(vehicle);
-		}
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void create(@RequestBody VehicleReading vehicleReading) {
+		vehicleReadingService.create(vehicleReading);
 	}
 }
