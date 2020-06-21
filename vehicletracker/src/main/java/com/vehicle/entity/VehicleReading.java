@@ -6,6 +6,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,7 +16,8 @@ import javax.persistence.Table;
 @Table(name="vehicle_reading")
 public class VehicleReading {
 	@Id
-	String id;
+	@GeneratedValue
+	long id;
 	String vin;
 	int latitude;
 	int longitude;
@@ -30,17 +32,12 @@ public class VehicleReading {
 	
 	@Embedded
 	Tires tires;
-	
-	public VehicleReading() {
-		this.id = UUID.randomUUID().toString();
-	}
-	
-	
-	public String getId() {
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
