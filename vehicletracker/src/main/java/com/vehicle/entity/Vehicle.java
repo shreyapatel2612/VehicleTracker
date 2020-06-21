@@ -1,14 +1,7 @@
 package com.vehicle.entity;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,14 +13,9 @@ public class Vehicle {
 	String make;
 	String model;
 	int year;
-	int readlineRpm;
+	int redlineRpm;
 	int maxFuelVolume;
 	String lastServiceDate;
-
- 	//@OneToMany(mappedBy="vehicles", cascade=CascadeType.ALL, fetch=FetchType.LAZY)//, cascade={javax.persistence.CascadeType.ALL})
-	//@JoinColumn(name = "vin")//, nullable=false, insertable=false, updatable=false)
-	//@OneToMany
-	//List<VehicleReading> vehicleReadings;
 	
 	public String getVin() {
 		return vin;
@@ -53,11 +41,11 @@ public class Vehicle {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public int getReadlineRpm() {
-		return readlineRpm;
+	public int getRedlineRpm() {
+		return redlineRpm;
 	}
-	public void setReadlineRpm(int redlineRpm) {
-		this.readlineRpm = redlineRpm;
+	public void setRedlineRpm(int redlineRpm) {
+		this.redlineRpm = redlineRpm;
 	}
 	public int getMaxFuelVolume() {
 		return maxFuelVolume;
